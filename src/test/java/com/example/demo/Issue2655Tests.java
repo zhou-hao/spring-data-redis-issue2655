@@ -2,28 +2,23 @@ package com.example.demo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.data.redis.serializer.RedisElementReader;
 import org.springframework.data.redis.serializer.RedisElementWriter;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.data.redis.util.ByteUtils;
 
-import java.io.*;
 import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 
-class DemoApplicationTests {
+class Issue2655Tests {
 
 
     @Test
-    void contextLoads() {
+    void testRedisElementReaderReturnNull() {
 
         LettuceConnectionFactory factory
                 = new LettuceConnectionFactory(
