@@ -8,6 +8,7 @@ import org.springframework.data.redis.serializer.RedisElementReader;
 import org.springframework.data.redis.serializer.RedisElementWriter;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.lang.Nullable;
 
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -61,9 +62,10 @@ class Issue2655Tests {
         static final RedisElementReader<Object> reader = RedisElementReader.from(RedisSerializer.java());
 
         @Override
+        @Nullable
         public Object read(ByteBuffer buffer) {
             Object val = reader.read(buffer);
-
+            // mock return null value
             return Objects.equals("b", val) ? null : val;
         }
 
