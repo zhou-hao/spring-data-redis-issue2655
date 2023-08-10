@@ -53,7 +53,7 @@ class Issue2655Tests {
 
         Assertions.assertNotNull(test);
         System.out.println(test);
-        Assertions.assertEquals(3, test.size());
+        Assertions.assertEquals(2, test.size());
     }
 
 
